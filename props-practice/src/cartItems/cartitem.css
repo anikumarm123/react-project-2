@@ -1,0 +1,18 @@
+.main{
+  text-align: center;
+  line-height: 30px;
+  display: flex;
+  
+}
+.main img{
+    width: 250px;
+    height: 150px;
+}
+.listitem{
+   display: flex;
+   width: 80%;
+   flex-wrap: wrap;
+}
+.eachfood{
+    margin: 30px;
+}

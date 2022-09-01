@@ -4,12 +4,12 @@ const Header = () => {
   return (
     <div className="head">
       <div>
-        <img src={require("../header/logo192.png")} />
+        <img src={require("../image/hotel.jpg")} />
       </div>
       <div className="h-left">
         <div className="ip">
           <input />
-          <i className="fa fa-search" style={{ position: "absolute" ,right:'335px',top:'33px',color:'white',fontSize:'20px'}}>
+          <i className="fa fa-search"  style={{ position: "absolute" ,right:'335px',top:'33px',color:'white',fontSize:'20px'}}>
         
           </i>
         </div>

@@ -1,13 +1,13 @@
 
 import './App.css';
+import CartItem from './cartItems/CartItem';
 import Header from './header/header';
-import Props from './content/props';
 
 function App() {
   return(
     <div>
       <Header/>
-      <Props/>
+      <CartItem/>
     </div>
   )
 }
