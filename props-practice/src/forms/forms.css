@@ -1,0 +1,15 @@
+.inp{
+    padding-top: 70px;
+}
+.inp input{
+    padding: 8px;
+}
+.inp label{
+    font-size: 25px;
+    padding-left: 25px;
+}
+.inp button{
+    padding: 8px;
+    margin-left: 20px;
+    background-color: rgb(222, 117, 117);
+}

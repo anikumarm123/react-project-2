@@ -16,15 +16,24 @@ function CartItem() {
 
   const orderfun = (eachItem) => {
     const check = order.includes(eachItem);
-
+    // order.some((d)=>{console.log(d); })
     if (check === false) {
       setOrder([...order, eachItem]);
       console.log(order);
     } else {
-      
+      setOrder([...order,eachItem.qt++]);
       
     }
   };
+  const removeItem =()=>{
+
+  }
+  const plusFun =()=>{
+
+  }
+  const minusFun =()=>{
+
+  }
   return (
     <div className="main">
       <div className="listitem">
@@ -34,7 +43,7 @@ function CartItem() {
       </div>
       <div>
         {order.map((eachfoods, ind) => (
-          <OrderItems key={ind} each={eachfoods} />
+          <OrderItems key={ind} each={eachfoods} removeBtn ={removeItem} plusBtn ={plusFun} minusBtn={minusFun}/>
         ))}
       </div>
     </div>
