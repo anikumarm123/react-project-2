@@ -26,7 +26,7 @@ const Form = () => {
   
   const editItem = (e)=>{
     console.log(e);
-
+      //const edit = 
       setProductName(e.ProductName)
       setProductPrice(e.ProductPrice)
       setQty(e.availableQty)

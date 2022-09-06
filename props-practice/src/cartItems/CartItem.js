@@ -5,34 +5,56 @@ import OrderItems from "./OrderItems";
 
 function CartItem() {
   const [item, setItem] = useState([
-    { name: "Dhosai", image: require("../image/item-1.jpg"), qt: 1 },
-    { name: "Dhosai", image: require("../image/item-2.jpg"), qt: 1 },
-    { name: "Dhosai", image: require("../image/item-3.jpg"), qt: 1 },
-    { name: "Dhosai", image: require("../image/item-4.webp"), qt: 1 },
-    { name: "Dhosai", image: require("../image/item-5.jpg"), qt: 1 },
-    { name: "Dhosai", image: require("../image/item-6.jpg"), qt: 1 },
+    {id:1, name: "Dhosai", image: require("../image/item-1.jpg")},
+    {id:2, name: "Dhosai", image: require("../image/item-2.jpg")},
+    {id:3, name: "Dhosai", image: require("../image/item-3.jpg")},
+    {id:4, name: "Dhosai", image: require("../image/item-4.webp")},
+    {id:5, name: "Dhosai", image: require("../image/item-5.jpg")},
+    {id:6, name: "Dhosai", image: require("../image/item-6.jpg")},
   ]);
   const [order, setOrder] = useState([]);
 
   const orderfun = (eachItem) => {
-    const check = order.includes(eachItem);
-    // order.some((d)=>{console.log(d); })
-    if (check === false) {
-      setOrder([...order, eachItem]);
-      console.log(order);
-    } else {
-      setOrder([...order,eachItem.qt++]);
-      
+    const check = order.some((data)=> data.id === eachItem.id )
+    console.log(check);
+    if(check){
+       const checkItem = order.map((item)=>{
+        if(eachItem.id == item.id){
+             return {...item,qty:item.qty+1}
+        }
+        else{
+          return item
+        }
+       })
+       setOrder([...checkItem])
+    }
+    else{
+      setOrder([...order,{...eachItem,qty:1}])
     }
   };
-  const removeItem =()=>{
-
+  const removeItem =(data)=>{
+    const remove = order.filter((item)=>{
+         return item !== data
+     })
+     console.log(remove);
+     setOrder(remove)
   }
-  const plusFun =()=>{
-
-  }
-  const minusFun =()=>{
-
+  
+  const decreament =(data)=>{
+    if(data.qty > 1){
+    const checkItem = order.map((item)=>{
+      if(data.id == item.id){
+           return {...item,qty:item.qty-1}
+      }
+      else{
+        return item
+      }
+     })
+     setOrder([...checkItem])   
+    }
+    else{
+        removeItem(data)
+    }
   }
   return (
     <div className="main">
@@ -42,8 +64,9 @@ function CartItem() {
         ))}
       </div>
       <div>
+        <h1>Order  Items</h1>
         {order.map((eachfoods, ind) => (
-          <OrderItems key={ind} each={eachfoods} removeBtn ={removeItem} plusBtn ={plusFun} minusBtn={minusFun}/>
+          <OrderItems key={ind} each={eachfoods} removeBtn ={removeItem} plusBtn ={orderfun} minusBtn={decreament}/>
         ))}
       </div>
     </div>

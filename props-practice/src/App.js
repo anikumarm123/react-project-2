@@ -1,16 +1,16 @@
 
-import Api from './ApiPractice/Api';
+//import Api from './ApiPractice/Api';
 import './App.css';
-import Form from './forms/form';
+ import Form from './forms/form';
 //import CartItem from './cartItems/CartItem';
 import Header from './header/header';
 
 function App() {
   return(
     <div>
-      <Api/>
+       {/* <Api/> */}
       <Header/>
-      <Form/>
+       <Form/>  
       
       {/* <CartItem/> */}
     </div>
