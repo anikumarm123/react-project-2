@@ -6,17 +6,18 @@ const Form = () => {
   const [ProductPrice, setProductPrice] = useState('');
   const [availableQty, setQty] = useState('');
   const [productView, setProduct] = useState([]);
-
+  const [duplicatAry,setAry] = useState([]);
+  const [check,setCheck]=useState(false)
   const mainFun = (n) => {
     n.preventDefault();
+
+    setProduct([...productView, { ProductName, ProductPrice, availableQty,id:productView.length+1}]);
+    console.log(productView);
     
-    setProduct([...productView, { ProductName, ProductPrice, availableQty }]);
     setProductName("")
     setProductPrice("")
-    setQty("")
-     
-  };
-  
+    setQty("")    
+}
   const removeItem =(remove)=>{
     const reject =  productView.filter((a)=>{
           return remove !== a 
@@ -24,14 +25,39 @@ const Form = () => {
     setProduct([...reject])    
   }
   
-  const editItem = (e)=>{
-    console.log(e);
-      //const edit = 
-      setProductName(e.ProductName)
-      setProductPrice(e.ProductPrice)
-      setQty(e.availableQty)
-          
+  const update =()=>{
+      setCheck(false) 
+    const d = duplicatAry
+    const isExit=productView.some((data)=>
+               data.id === d.id
+    )
+    if(isExit){
+     const replace = productView.map((data)=>{
+        if(data.id === d.id){
+          return {...data,ProductName:ProductName,ProductPrice:ProductPrice,availableQty:availableQty}
+        
+        } 
+        else{
+          return{...data}
+        } 
+    })
+    setProduct(replace)
+    setProductName("")
+    setProductPrice("")
+    setQty("")  
+  };
   }
+  const editItem = (e)=>{
+    setCheck(true)
+     setAry(e) 
+    
+     console.log(duplicatAry);
+        setProductName(e.ProductName);
+        setProductPrice(e.ProductPrice);
+        setQty(e.availableQty)
+      
+  }
+
   const allFun = (event) => {
   
     if (event.target.name === "productName") {
@@ -57,7 +83,7 @@ const Form = () => {
         <label> Product Available :</label>
           <input name="productAvailable" value={availableQty} onChange={allFun} ></input>
         
-        <button onClick={mainFun}>Submit</button>
+        {!check?<button onClick={mainFun}>Submit</button>:<button onClick={update}>Update</button>}
       </div>
       <div className="show">
       {productView.map((a,int)=>

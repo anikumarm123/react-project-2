@@ -1,0 +1,28 @@
+.route{
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+}
+.route input{
+    padding: 10px;
+}
+.route button{
+    padding: 10px;
+    border:1px solid gray;
+    border-radius: 30px;
+    background-color: rgb(36, 97, 250);
+    color: #fff;
+}
+.eachdata{
+    text-align: center;
+    margin: 20px;
+}
+.eachdata img{
+    
+    width: 300px;
+    height: 200px;
+}
+.mainflx{
+    display: flex;
+    flex-wrap: wrap;
+}
