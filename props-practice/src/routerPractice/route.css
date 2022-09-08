@@ -16,6 +16,9 @@
 .eachdata{
     text-align: center;
     margin: 20px;
+    background-color: rgb(244, 183, 104);
+    width:300px;
+    height:350px;
 }
 .eachdata img{
     
@@ -24,5 +27,38 @@
 }
 .mainflx{
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
+}
+.eachdata button{
+    padding: 8px;
+    border: 1px solid burlywood ;
+    border-radius: 10px;
+    background-color: rgb(89, 84, 77);
+    margin: 5px;
+    
+    color: #fff;
+    font-size: 15px;
+    
+}
+.eachdata button:hover{
+    box-shadow: 1px 1px 10px;
+    background-color:gray 
+}
+.cartfood{
+    text-align: center;
+}
+.view{
+    text-align: center;
+}
+.viewbtn{
+    padding: 10px;
+    font-size: 20px;
+    background-color: rgb(235, 134, 134);
+    box-shadow: 1px 1px 10px ;
+    border-radius: 10px;
+}
+.viewbtn:hover{
+    background-color: rgb(128, 229, 128);
+    
 }
