@@ -19,8 +19,9 @@ const Profile = () => {
       setListItem( listFoods);  
   }
   const CartFun =(data)=>{
-     setViewItem([...viewItem,{data}])
+     setViewItem([...viewItem,data])
      console.log(viewItem);
+     
   }
   const viewFun=()=>{
     
@@ -32,12 +33,11 @@ const Profile = () => {
     <div className='view' >
       <button className='viewbtn' onClick={()=>viewFun()}>View Cart Items</button>
       <div className='mainflx'>
-         {item.map((data)=>
-            <div className='eachdata'> 
+         {item.map((data,index)=>
+            <div className='eachdata' key={index}> 
             <h1>{data.name}</h1>
              <img src={data.image}></img><br></br>
-             <button onClick={()=>CartFun(data)}>Add to Cart</button>
-             
+             <button onClick={()=>CartFun(data)}>Add to Cart</button>  
             </div>
          )
          }

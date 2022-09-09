@@ -1,0 +1,15 @@
+.listproduct{
+    width: 250px;
+    background-color: rgb(244, 141, 68);
+    margin: 20px;
+    text-align: center;
+}
+.listproduct img{
+    width: 200px;
+    height: 200px;
+}
+.productFlx{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

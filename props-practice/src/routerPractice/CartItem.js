@@ -10,22 +10,24 @@ const CartItem = () => {
   const getCartItem = ()=>{
 
    const cartFood = JSON.parse(localStorage.getItem('cartItem'))
-   setCartItems([cartFood])
+   setCartItems(cartFood)
   
   }
   
   return (
     <div className='cartfood'>
       <h1>Order Items</h1>
-       {cartItems.map((data)=>
-        <div className='eachdata'> 
+      <div className='eachflx'>
+       {cartItems.map((data,index)=>
+        <div className='eachdata' key={index}> 
         <h1>{data.name}</h1>
          <img src={data.image}></img><br></br>
          <button>remove</button>
          <button>More Info</button>
+         
          </div>
     )}
-      
+      </div>
       
     </div>
   )

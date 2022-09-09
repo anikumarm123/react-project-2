@@ -14,6 +14,7 @@
     color: #fff;
 }
 .eachdata{
+    
     text-align: center;
     margin: 20px;
     background-color: rgb(244, 183, 104);
@@ -61,4 +62,9 @@
 .viewbtn:hover{
     background-color: rgb(128, 229, 128);
     
+}
+.eachflx{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
