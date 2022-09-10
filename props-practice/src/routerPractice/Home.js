@@ -31,7 +31,7 @@ const login =()=>{
     const name = checkUserName.includes(username);
     const password = checkUserPassWord.includes(userpassWord)
     console.log(name,password);
-    if(name === password){
+    if(name == true && password == true ){
         nav('/profile')
     }
     

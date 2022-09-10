@@ -19,10 +19,27 @@ const Profile = () => {
       setListItem( listFoods);  
   }
   const CartFun =(data)=>{
-     setViewItem([...viewItem,data])
-     console.log(viewItem);
-     
+    // const check = viewItem.some((eachItem)=>
+    //     eachItem.id === data.id  
+    // )
+    // console.log(check);
+    // if(check){
+    //   const duplicateRemove = viewItem.map((item)=>{ 
+    //     if(item.id === data.id){
+    //         return{...item,qty:item.qty+1}
+    //     }
+    //     else{
+    //       return item
+    //     }
+
+    //    })
+    //    setViewItem([...duplicateRemove])
+    // }
+    // else{
+      setViewItem([...viewItem,{...data,qty:1}])
+    //}
   }
+
   const viewFun=()=>{
     
     localStorage.setItem('cartItem',JSON.stringify(viewItem));
