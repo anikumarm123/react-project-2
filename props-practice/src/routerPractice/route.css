@@ -104,3 +104,25 @@
     font-size: 20px;
     font-size: bold;
 }
+.infoflx{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.infoitem{
+    text-align: center;
+    width: 300px;
+    height: 350px;
+    background-color:thistle;
+    border: 1px solid thistle;
+    box-shadow: 1px 1px 20px;
+    border-radius: 10px;
+}
+.infoitem img{
+    width: 300px;
+    height: 200px;
+}
+.infoitem span{
+    font-size: 25px;
+    padding: 20px;
+}

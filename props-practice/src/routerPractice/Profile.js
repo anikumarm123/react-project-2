@@ -18,33 +18,24 @@ const Profile = () => {
       const listFoods = JSON.parse(localStorage.getItem('listItem'));
       setListItem( listFoods);  
   }
-  const CartFun =(data)=>{
-    // const check = viewItem.some((eachItem)=>
-    //     eachItem.id === data.id  
-    // )
-    // console.log(check);
-    // if(check){
-    //   const duplicateRemove = viewItem.map((item)=>{ 
-    //     if(item.id === data.id){
-    //         return{...item,qty:item.qty+1}
-    //     }
-    //     else{
-    //       return item
-    //     }
 
-    //    })
-    //    setViewItem([...duplicateRemove])
-    // }
-    // else{
-      setViewItem([...viewItem,{...data,qty:1}])
-    //}
+  const CartFun =(data)=>{
+    const duplicateRemove = viewItem.some((duplicate)=>duplicate.id === data.id) 
+   if(duplicateRemove === false){
+    setViewItem([...viewItem,{...data,qty:1}])
+   }
+  }
+
+  const moreInfo =(data)=>{
+    localStorage.setItem('infoitem',JSON.stringify(item));
+    cartNav(`/datail/${data.id}`)      
   }
 
   const viewFun=()=>{
-    
     localStorage.setItem('cartItem',JSON.stringify(viewItem));
     cartNav('/cartItem')
   }
+
   return (
     
     <div className='view' >
@@ -54,7 +45,8 @@ const Profile = () => {
             <div className='eachdata' key={index}> 
             <h1>{data.name}</h1>
              <img src={data.image}></img><br></br>
-             <button onClick={()=>CartFun(data)}>Add to Cart</button>  
+             <button onClick={()=>CartFun(data)}>Add to Cart</button>
+             <button onClick={()=>moreInfo(data)}>More Info</button>  
             </div>
          )
          }

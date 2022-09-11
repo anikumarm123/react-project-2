@@ -13,16 +13,34 @@ const CartItem = () => {
   }
   const plusBtn =(data)=>{
     const check = cartItems.some((inc)=>inc.id === data.id)
-    if(check === true){
+    if(check){
         const item = cartItems.map((para)=>{
             if(para.id === data.id){
               return {...para,qty:para.qty+1}
+            }
+            else{
+              return para
             }     
       })
-      setCartItems([item])   
+      setCartItems(item)   
     }
   }
   
+const minusBtn = (minus)=>{
+  const check = cartItems.some((inc)=>inc.id === minus.id)
+  if(check){
+      const item = cartItems.map((para)=>{
+          if(para.id === minus.id){
+            return {...para,qty:para.qty-1}
+          }
+          else{
+            return para
+          }     
+    })
+    setCartItems(item)   
+  }
+}
+
   return (
     <div className='order'>
       <h1>Order Items</h1>
@@ -33,8 +51,7 @@ const CartItem = () => {
          <img src={data.image}></img><br></br>
          <button onClick={()=>plusBtn(data)} >+</button>
          <span>Quandity : {data.qty}</span>
-         <button>-</button><br></br>
-         <button>More Info</button>
+         <button onClick={()=>minusBtn(data)}>-</button><br></br>
          <button>remove</button>
          </div>
     )}

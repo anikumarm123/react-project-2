@@ -15,6 +15,8 @@ import './App.css';
   //import About from './routerPractice/CartItem';
   import { BrowserRouter,Route,Routes } from 'react-router-dom';
   import CartItem from './routerPractice/CartItem';
+import Details from './routerPractice/Details';
+
 
 function App() {
   return(
@@ -26,6 +28,8 @@ function App() {
           <Route path="/" element={<Home/>}></Route>
           <Route path="profile" element={<Profile/>}></Route>
           <Route path="cartItem" element={<CartItem/>}></Route>
+          <Route path='datail/:id' element={<Details/>}></Route>
+      
        </Routes>
        </BrowserRouter> 
         
